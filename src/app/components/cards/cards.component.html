@@ -1,0 +1,25 @@
+<div  *ngFor="let item of data">
+  <button
+    #element
+    (click)="Accordion(element)"
+    class="mb-2 d-flex justify-content-between accordion"
+  >
+    <div class="d-flex align-items-center">
+      <h2>{{ item.time }}</h2>
+      <img [src]="item.img" alt="" />
+      <div class="temp">{{ item.tempC }}°</div>
+    </div>
+    <div>
+      <div class="realfeel">
+       chance Rain<span class="ps-1">{{ item.chanceofrain }}%</span>
+      </div>
+      <div class="weatherdesc">{{ item.weatherDesc }}</div>
+    </div>
+  </button>
+  <div class="panel d-none">
+    <app-daily-forcast
+      [boxshadow]="false"
+      [current]="item"
+    ></app-daily-forcast>
+  </div>
+</div>

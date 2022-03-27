@@ -1,0 +1,45 @@
+<div *ngIf="state" class="mb-5" style="width: 100%">
+  <div class="d-flex align-items-center">
+    <button [routerLink]="['']" class="btn">Home</button>
+    <button [routerLink]="['/search', weathercard.Lan_Lon]" class="btn">
+      Today
+    </button>`
+    <button [routerLink]="['/hourly', weathercard.Lan_Lon,0]" class="btn">
+      Hourly
+    </button>
+    <button [routerLink]="['/10days', weathercard.Lan_Lon]" class="btn">
+      10Days
+    </button>
+  </div>
+  <div class="row first">
+    <section class="col-lg-8 col-md-6">
+      <app-daily-forcast [current]="weatherdetails"></app-daily-forcast>
+    </section>
+    <section style="color: #fff" class="col-lg-4 col-md-6">
+      <app-weather-card [weathercard]="weathercard"></app-weather-card>
+    </section>
+  </div>
+  <!-- <div class="row">
+    <section style="background-color: #fff" class="col-lg-8 col-md-12">
+      <app-today-forcast [todayForecast]="todayForecast"></app-today-forcast>
+      <app-today-forcast [todayForecast]="todayForecast"></app-today-forcast>
+      <app-today-forcast [todayForecast]="todayForecast"></app-today-forcast>
+    </section>
+  </div> -->
+  <div class="row">
+    <section class="col-lg-8 col-md-12">
+      <div class="graph">
+        <!-- <app-search></app-search> -->
+        <app-line-chart [sentData]="sentData"></app-line-chart>
+      </div>
+    </section>
+  </div>
+</div>
+
+<div *ngIf="!state" class="d-flex justify-content-center">
+  <div class="spinner-border mt-5" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>
+
+

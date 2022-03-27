@@ -1,0 +1,92 @@
+<div *ngIf="state" class="d-flex align-items-center">
+  <button [routerLink]="['']" class="btn">Home</button>
+  <button [routerLink]="['/search', weathercard.Lan_Lon]" class="btn">
+    Today
+  </button>
+  <button [routerLink]="['/hourly', weathercard.Lan_Lon, 0]" class="btn">
+    hourly
+  </button>
+  <button [routerLink]="['/10days', weathercard.Lan_Lon]" class="btn">
+    10Days
+  </button>
+</div>
+<div *ngIf="state" class="row main">
+  <section class="col-lg-6 col-sm-12">
+    <div *ngFor="let item of data">
+      <button #element (click)="Accordion(element)" class="mb-2 row accordion">
+        <div class="col d-flex align-items-center">
+          <div>
+            <h2>{{ item.day }}</h2>
+            <h2>{{ item.date }}</h2>
+          </div>
+        </div>
+        <div class="col temp">
+          <span>{{ item.maxtempC }}°</span>/<span>{{ item.mintempC }}°</span>
+        </div>
+
+        <div class="col">
+          <div class="realfeel">
+            <span class="ps-1">{{ item.air_quality }}</span>
+          </div>
+          <!-- <div class="weatherdesc">{{ item.uvIndex }}</div> -->
+        </div>
+      </button>
+      <div class="panel d-none">
+        <div class="weatherdetails">
+          <div
+            style="padding: 15px 0px; margin: 0"
+            class="d-flex justify-content-between"
+          >
+            <h2>
+              <span style="margin: 0; color: blue">moon phase : </span
+              >{{ item.astronomy?.moon_phase }}
+            </h2>
+            <p
+              class="showdetails"
+              [routerLink]="['/hourly', weathercard.Lan_Lon, item.index]"
+            >
+              Show details
+            </p>
+          </div>
+          <div
+            class="d-flex"
+            style="
+              align-items: center;
+              text-align: center;
+              justify-content: center;
+              overflow: hidden;
+            "
+          >
+            <div class="left">
+              <p>
+                moonrise<span>{{ item.astronomy?.moonrise }}</span>
+              </p>
+              <p>
+                moonset<span>{{ item.astronomy?.moonset }}</span>
+              </p>
+            </div>
+            <div class="right">
+              <p>
+                sunrise<span>{{ item.astronomy?.sunrise }}</span>
+              </p>
+              <p>
+                sunset<span>{{ item.astronomy?.sunset }}</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section style="color: #fff" class="col-lg-6 col-sm-12">
+    <app-weather-card
+      [displaynone]="true"
+      [weathercard]="weathercard"
+    ></app-weather-card>
+  </section>
+</div>
+<div *ngIf="state == false" class="d-flex justify-content-center">
+  <div class="spinner-border mt-5" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>

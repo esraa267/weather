@@ -1,0 +1,25 @@
+<div style="border-radius: 20px; box-shadow: 0 0 5px rgb(23 36 50 / 50%)">
+  <h3>Today's forecast</h3>
+  <div
+    class="d-flex"
+    style="
+      align-items: center;
+      text-align: center;
+      justify-content: center;
+      overflow: hidden;
+    "
+  >
+    <div class="line" *ngFor="let item of todayForecast">
+      <p>{{ item.text }}</p>
+      <p style="color: blue">{{ item.tempC }}°</p>
+      <p>
+        <img
+          width="100px"
+          height="100px"
+          [src]="item.weatherIconUrl[0].value"
+          alt=""
+        />
+      </p>
+    </div>
+  </div>
+</div>

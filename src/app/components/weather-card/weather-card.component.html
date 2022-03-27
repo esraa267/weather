@@ -1,0 +1,46 @@
+<div
+
+  class="weathercard"
+>
+  <h2>
+    {{ weathercard.areaName }}
+  </h2>
+  <h2>{{ weathercard.date }}</h2>
+</div>
+<div  style="background-color: #c5c5c5; border-radius: 0 0 20px 20px">
+  <div
+    class="d-flex"
+    style="
+      border-radius: 0 0 20px 20px;
+      justify-content: space-between;
+      text-shadow: 0 0 5px rgb(23 36 50 / 50%);
+      color: #fff;
+    "
+  >
+    <div>
+      <span style="font-size: 4rem">{{ weathercard.temp_C }}°</span>
+    </div>
+    <div>
+      <img
+        width="100px"
+        height="100px"
+        [src]="weathercard.weatherIconUrl"
+        alt=""
+      />
+    </div>
+  </div>
+  <div class="pt-0 cardcontent">
+    <p class="fs-5 m-0">
+      Weather :
+      <span style="color: blue; font-weight: bold">{{
+        weathercard?.weatherDesc
+      }}</span>
+    </p>
+    <p class="fs-5 m-0">
+      Air quality :
+      <span style="color: blue; font-weight: bold">{{
+        weathercard?.airQuality
+      }}</span>
+    </p>
+  </div>
+</div>

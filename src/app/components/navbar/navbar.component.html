@@ -1,0 +1,30 @@
+<div style="position: relative; background-color: #59516e; padding: 1rem 0">
+  <div class="search d-flex justify-content-between">
+    <input
+      [(ngModel)]="searchitem"
+      (keydown)="search()"
+      class="form-control"
+      style="
+        background-color: #7a748b;
+        display: block;
+        width: 100%;
+        padding: 0.5rem;
+        border-radius: 20px;
+        border: 0;
+        color: #fff;
+      "
+      type="search"
+    />
+
+    <ul [hidden]="!countries">
+      <li
+        (click)="clear()"
+        [routerLink]="['/search', item.name]"
+        *ngFor="let item of countries"
+      >
+        <a>{{ item.name }}</a>
+      </li>
+    </ul>
+  </div>
+</div>
+

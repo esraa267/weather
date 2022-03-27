@@ -1,0 +1,64 @@
+* {
+  font-size: 20px;
+}
+.row {
+  align-items: center;
+}
+div {
+  padding: 10px 16px;
+}
+.weathercard {
+  background-color: #3d354b;
+  padding: 15px 20px;
+  border-radius: 20px 20px 0 0;
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+img {
+  border-radius: 30%;
+}
+
+@media screen and (max-width: 575px) {
+  * {
+    font-size: 13px;
+  }
+
+  div {
+    padding: 6px;
+  }
+
+  .cardcontent {
+    display: none;
+  }
+}
+@media screen and (min-width: 576px) and (max-width: 767px) {
+  * {
+    font-size: 15px;
+  }
+  div {
+    padding: 10px;
+  }
+  .cardcontent {
+    display: none;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  * {
+    font-size: 17px;
+  }
+
+  div {
+    padding: 10px;
+  }
+}
+
+@media screen and (min-width: 992px) and (max-width: 1279px) {
+  * {
+    font-size: 19px;
+  }
+  div {
+    padding: 10px;
+  }
+}
