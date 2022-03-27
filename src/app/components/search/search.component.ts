@@ -35,8 +35,12 @@ export class SearchComponent implements OnInit {
           e.nearest_area[0].latitude + ',' + e.nearest_area[0].longitude;
         this.current = {
            ...e.current_condition[0],
+           Lan_Lon: e.nearest_area[0].latitude + ',' + e.nearest_area[0].longitude,
+           areaName: e.nearest_area[0].areaName[0].value,
+           temp_C: e.current_condition[0].temp_C,
           weatherDesc: e.current_condition[0].weatherDesc[0].value,
           weatherIconUrl: e.current_condition[0].weatherIconUrl[0].value,
+          date: e.weather[0].date
         };
         this.todayForecast = this.todayForecast = [
           { ...e.weather[0].hourly[1], text: 'Morning' },
@@ -44,7 +48,7 @@ export class SearchComponent implements OnInit {
           { ...e.weather[0].hourly[5], text: 'Evening' },
           { ...e.weather[0].hourly[7], text: 'Night' },
         ];
-       this. state=true
+       this.state=true
         m.unsubscribe();
         this.http.data.next([]);
       });

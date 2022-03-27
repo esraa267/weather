@@ -122,7 +122,11 @@ p span {
   .accordion {
     padding: 0 1rem;
   }
+  .weatherdetails{
+    font-size: 15px;
+  }
 }
+
 @media screen and (max-width: 975px) and(min-width:576px) {
   .row {
     margin: 1rem 0;
@@ -130,4 +134,5 @@ p span {
   .main {
     flex-direction: column-reverse;
   }
+  
 }
